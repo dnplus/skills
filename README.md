@@ -1,45 +1,100 @@
 # Walking Skeleton Delivery
 
-**Stop paying for code before you know the product path works.**
+![dnplus Tokscale coding activity](https://tokscale.ai/api/embed/dnplus/svg?view=3d&theme=light&compact=1)
 
-Walking Skeleton Delivery reduces coding-agent token usage, implementation time, and rework by proving one complete, observable path across the real system before expanding variants, abstractions, tests, and edge cases.
+## Your coding agent can finish every layer and still fail the first real click.
 
-The governing principle is simple:
+Make it prove one working product path before it earns the right to build the rest.
 
-> Do not scale implementation faster than evidence.
-
-## What it changes
-
-Instead of implementing broad horizontal layers and discovering integration mistakes late, the skill keeps the agent on one golden path:
+Walking Skeleton Delivery keeps coding agents from spending tokens, time, and code on an architecture that nobody has seen work.
 
 ```text
-Define the real outcome
--> Prove one thin end-to-end path
--> Stabilize demonstrated boundaries
--> Expand supported variants
--> Batch verify
--> Harden real exceptions
+One real scenario
+      ↓
+One path across every required boundary
+      ↓
+Visible outcome + operational evidence
+      ↓
+Then expand, test, and harden
 ```
 
-This targets execution waste upstream of linting, refactoring, and output cleanup.
+## The expensive failure mode
 
-## Install with GitHub CLI
+You ask an agent to add a capability. It creates interfaces, adapters, configuration, tests, docs, and edge-case handling. The pieces look finished.
+
+Then you try the product.
+
+The UI cannot reach the backend. The runtime reads a different contract. The "end-to-end" test never used a real identity. Four hours of polished work now need a rewrite.
+
+Walking Skeleton Delivery changes the order of work so the first broken assumption appears while the implementation is still small.
+
+## Install
 
 ```bash
-gh skill install dnplus/walking-skeleton-delivery walking-skeleton-delivery --agent codex --scope user
+gh skill install dnplus/walking-skeleton-delivery \
+  walking-skeleton-delivery \
+  --agent codex \
+  --scope user
 ```
 
-The repository is currently private, so installation requires GitHub access to it.
+The repository is private during early testing. Installation requires GitHub access.
 
-## Use
-
-Invoke the skill explicitly:
+## Use it
 
 ```text
 $walking-skeleton-delivery deliver this capability
 ```
 
-Codex can also select it automatically for a new product capability, rewrite, or cross-module migration that should be delivered through one thin observable path.
+Or describe a new capability, rewrite, or cross-module migration. Codex can select the skill automatically when the task matches.
+
+## What the agent does differently
+
+Say you ask for support for six providers.
+
+Without the skill, an agent may build a provider framework, six adapters, a test matrix, and fallback behavior before one provider works in the product.
+
+With the skill, the agent first chooses one provider and one real scenario:
+
+```text
+Real user
+  → actual UI or public interface
+  → application boundary
+  → provider/runtime boundary
+  → visible result
+  → audit or correlation evidence
+```
+
+It advances that scenario checkpoint by checkpoint. After the path works, the agent extracts the demonstrated pattern, freezes the exercised contract, adds the remaining providers, runs the broader regression suite, and hardens real failure cases.
+
+## The rule
+
+> Do not scale implementation faster than evidence.
+
+The skill treats a build, API-only check, seeded database, component test, or passing-test count as partial evidence. A product path becomes end-to-end only after the real entry point, execution, visible outcome, and required operational evidence have all been observed.
+
+## The delivery sequence
+
+```text
+Prove → Stabilize → Scale → Harden
+```
+
+1. Choose one golden path with a real actor and observable outcome.
+2. Fix only the first blocker on that path.
+3. Reach the outcome through the real system boundaries.
+4. Extract contracts and abstractions demonstrated by the working path.
+5. Fan out to variants and batch verification.
+6. Add recovery and edge cases based on real risks.
+
+## Measure whether it saved you money
+
+Compare these across similar tasks:
+
+- time and tokens to the first green product path;
+- tests written before that path worked;
+- code discarded or rewritten after integration;
+- checkpoints reached per implementation cycle.
+
+The skill cannot make every task cheap. It makes waste visible before the agent multiplies it.
 
 ## License
 
