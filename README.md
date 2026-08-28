@@ -32,8 +32,6 @@ Tokscale has tracked 63.8B tokens across my coding-agent work. At that scale, ba
 
 ![dnplus Tokscale coding activity](https://tokscale.ai/api/embed/dnplus/svg?view=3d&theme=light&compact=1)
 
-_Tokscale estimates the displayed cost from tracked usage. It is not an amount paid._
-
 ## Install
 
 ```bash
