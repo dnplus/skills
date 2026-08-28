@@ -1,0 +1,4 @@
+interface:
+  display_name: "Walking Skeleton Delivery"
+  short_description: "Ship a thin real path before expanding scope"
+  default_prompt: "Use $walking-skeleton-delivery to deliver this capability through one thin observable path across its real boundaries before expanding contracts, variants, tests, and exceptions."

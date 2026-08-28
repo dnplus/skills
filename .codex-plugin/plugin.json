@@ -1,0 +1,23 @@
+{
+  "name": "walking-skeleton-delivery",
+  "version": "0.1.0",
+  "description": "Reduce coding-agent delivery cost by proving one complete path before scaling implementation.",
+  "author": {
+    "name": "dnplus",
+    "url": "https://github.com/dnplus"
+  },
+  "homepage": "https://github.com/dnplus/walking-skeleton-delivery",
+  "repository": "https://github.com/dnplus/walking-skeleton-delivery",
+  "license": "MIT",
+  "keywords": ["walking-skeleton", "coding-agents", "delivery", "cost-control"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Walking Skeleton Delivery",
+    "shortDescription": "Prove one real path before expanding scope.",
+    "longDescription": "Reduce token usage, implementation time, and rework by advancing one observable product path across its real system boundaries before expanding variants, abstractions, tests, and edge cases.",
+    "developerName": "dnplus",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Use Walking Skeleton Delivery to deliver this capability through one thin observable path before expanding scope."
+  }
+}
