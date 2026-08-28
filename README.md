@@ -37,21 +37,20 @@ _Tokscale estimates the displayed cost from tracked usage. It is not an amount p
 ## Install
 
 ```bash
-gh skill install dnplus/walking-skeleton-delivery \
-  walking-skeleton-delivery \
-  --agent codex \
-  --scope user
+npx skills add dnplus/walking-skeleton-delivery
 ```
 
-The repository is private during early testing. Installation requires GitHub access.
+The installer detects your agent and lets you choose the installation scope.
+
+The repository is private during early testing. The installer reuses your configured Git, GitHub CLI, or SSH credentials.
 
 ## Use it
 
 ```text
-$walking-skeleton-delivery deliver this capability
+Use Walking Skeleton Delivery to deliver this capability.
 ```
 
-Or describe a new capability, rewrite, or cross-module migration. Codex can select the skill automatically when the task matches.
+Or describe a new capability, rewrite, or cross-module migration. Compatible agents can select the skill automatically when the task matches.
 
 ## What the agent does differently
 
