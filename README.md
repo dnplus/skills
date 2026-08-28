@@ -38,10 +38,6 @@ Tokscale has tracked 63.8B tokens across my coding-agent work. At that scale, ba
 npx skills add dnplus/walking-skeleton-delivery
 ```
 
-The installer detects your agent and lets you choose the installation scope.
-
-The repository is private during early testing. The installer reuses your configured Git, GitHub CLI, or SSH credentials.
-
 ## Use it
 
 ```text
