@@ -26,9 +26,9 @@ The UI cannot reach the backend. The runtime reads a different contract. The "en
 
 Walking Skeleton Delivery changes the order of work so the first broken assumption appears while the implementation is still small.
 
-## Why this exists
+## What all those tokens taught me
 
-Bad execution order burns context, time, and rewrite cycles.
+Most of the waste came from building too much before proving one real path worked.
 
 ![dnplus Tokscale coding activity](https://tokscale.ai/api/embed/dnplus/svg?view=3d&theme=light&compact=1)
 
