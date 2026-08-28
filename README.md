@@ -35,7 +35,7 @@ Tokscale has tracked 63.8B tokens across my coding-agent work. At that scale, ba
 ## Install
 
 ```bash
-npx skills add dnplus/walking-skeleton-delivery
+npx skills add dnplus/skills
 ```
 
 ## Use it

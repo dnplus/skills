@@ -6,8 +6,8 @@
     "name": "dnplus",
     "url": "https://github.com/dnplus"
   },
-  "homepage": "https://github.com/dnplus/walking-skeleton-delivery",
-  "repository": "https://github.com/dnplus/walking-skeleton-delivery",
+  "homepage": "https://github.com/dnplus/skills",
+  "repository": "https://github.com/dnplus/skills",
   "license": "MIT",
   "keywords": ["walking-skeleton", "coding-agents", "delivery", "cost-control"],
   "skills": "./skills/",
