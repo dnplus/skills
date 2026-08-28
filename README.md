@@ -1,7 +1,5 @@
 # Walking Skeleton Delivery
 
-![dnplus Tokscale coding activity](https://tokscale.ai/api/embed/dnplus/svg?view=3d&theme=light&compact=1)
-
 ## Your coding agent can finish every layer and still fail the first real click.
 
 Make it prove one working product path before it earns the right to build the rest.
@@ -27,6 +25,14 @@ Then you try the product.
 The UI cannot reach the backend. The runtime reads a different contract. The "end-to-end" test never used a real identity. Four hours of polished work now need a rewrite.
 
 Walking Skeleton Delivery changes the order of work so the first broken assumption appears while the implementation is still small.
+
+## Why this exists
+
+Tokscale has tracked 63.8B tokens across my coding-agent work. At that scale, bad execution order burns context, time, and rewrite cycles long before code quality becomes the main problem.
+
+![dnplus Tokscale coding activity](https://tokscale.ai/api/embed/dnplus/svg?view=3d&theme=light&compact=1)
+
+_Tokscale estimates the displayed cost from tracked usage. It is not an amount paid._
 
 ## Install
 
