@@ -1,0 +1,15 @@
+{
+  "name": "dnplus-skills",
+  "description": "Agent skills by dnplus.",
+  "owner": {
+    "name": "dnplus",
+    "url": "https://github.com/dnplus"
+  },
+  "plugins": [
+    {
+      "name": "walking-skeleton-delivery",
+      "source": "./",
+      "description": "Reduce coding-agent delivery cost by proving one complete path before scaling implementation."
+    }
+  ]
+}

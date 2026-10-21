@@ -38,6 +38,15 @@ Most of the waste came from building too much before proving one real path worke
 npx skills add dnplus/skills
 ```
 
+Claude Code plugin:
+
+```text
+/plugin marketplace add dnplus/skills
+/plugin install walking-skeleton-delivery@dnplus-skills
+```
+
+The repo also ships an [Agent Plugins](https://agent-plugins.org) manifest (`plugin.json`) and a Codex manifest (`.codex-plugin/plugin.json`).
+
 ## Use it
 
 ```text
