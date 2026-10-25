@@ -1,4 +1,5 @@
 import argparse
+import urllib.request
 import datetime
 import hashlib
 import ipaddress
@@ -8,11 +9,23 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--source-file', type=Path, required=True)
+    source_group = parser.add_mutually_exclusive_group(required=True)
+    source_group.add_argument('--source-file', type=Path)
+    source_group.add_argument('--fetch-openai', action='store_true')
+    parser.add_argument('--condition-key', choices=['request.ip', 'request_ip'], default='request_ip')
     parser.add_argument('--output-dir', type=Path, required=True)
     parser.add_argument('--add', action='append', default=[])
     args = parser.parse_args()
-    raw = args.source_file.read_bytes()
+    source_url = 'https://openai.com/chatgpt-agents.json' if args.fetch_openai else None
+    fetched_at = None
+    if source_url:
+        with urllib.request.urlopen(source_url, timeout=30) as response:
+            raw = response.read(2_000_001)
+        if len(raw) > 2_000_000:
+            raise ValueError('Feed exceeds expected maximum size')
+        fetched_at = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    else:
+        raw = args.source_file.read_bytes()
     source = json.loads(raw)
     rows = source['prefixes']
     if not rows:
@@ -30,6 +43,9 @@ def main():
     values = [v for v in dict.fromkeys(values) if v not in additions] + additions
     metadata = {
         'sourceCreationTime': source['creationTime'],
+        'sourceUrl': source_url,
+        'fetchedAt': fetched_at,
+        'conditionKey': args.condition_key,
         'generatedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(),
         'sourceSha256': hashlib.sha256(raw).hexdigest(),
         'sourceEntries': len(rows),
@@ -42,7 +58,7 @@ def main():
         'source.json': raw,
         'allowlist.txt': ('\n'.join(values) + '\n').encode(),
         'allowlist-comma.txt': (','.join(values) + '\n').encode(),
-        'condition.json': (json.dumps({'condition': {'request.ip': {'in': values}}}, indent=2) + '\n').encode(),
+        'condition.json': (json.dumps({'condition': {args.condition_key: {'in': values}}}, indent=2) + '\n').encode(),
         'metadata.json': (json.dumps(metadata, indent=2) + '\n').encode(),
     }
     args.output_dir.mkdir(parents=True, exist_ok=True)
