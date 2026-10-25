@@ -104,6 +104,10 @@ Compare these across similar tasks:
 
 The skill cannot make every task cheap. It makes waste visible before the agent multiplies it.
 
+## Additional skills
+
+- [Cloudflare / ChatGPT Sites selection](skills/cloudflare-sites-selection/SKILL.md): choose a hosting approach by scope and operational needs, reuse existing Sites, and produce safe lifecycle recommendations.
+
 ## License
 
 MIT
