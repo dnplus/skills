@@ -1,11 +1,17 @@
 ---
 name: cloudflare-ops
-description: 盤查 Cloudflare Workers 的部署管線、staging 與 production 資源隔離、最小 API Token 權限，以及整理 Codex Cloud 與本機出口 CIDR 白名單。
+description: 標準化 OpenAI 雲端環境操作 PA Cafe 的 Cloudflare 最小權限 API Token、staging 部署、production 發布、唯讀查核與日常維運；包含來源 CIDR 與憑證輪替。
 ---
 
 # Cloudflare Ops
 
 使用台灣繁體中文。依使用者指定的盤查、產生檔案或實際變更範圍執行；「先不要改」僅進行唯讀查核與要求的本機輸出。建立此 skill 不授權未來部署、建立 Token 或改動線上資源。
+
+## 依用途選擇作業方式
+
+本 skill 的主體是 OpenAI 雲端環境與 PA Cafe 的 Cloudflare 部署及維運權限標準化，CIDR 是輔助來源限制。使用 scoped API Token；使用者口中的 API key 預設指此 Token，不採用 Global API Key。
+
+先讀 [PA Cafe 權限與維運標準](references/pacafe-operations.md)，選擇唯讀巡檢、staging 部署、production 發布或臨時管理用途。依「環境 × 用途 × 執行來源」分開 Token，從唯讀開始，只在任務需要時選用部署憑證。OpenAI 雲端環境只注入目前任務所需的 Token；production 寫入憑證留在正式發布管線，除非使用者明確授權其他使用方式。
 
 ## 部署與資源盤查
 
